@@ -7,7 +7,7 @@ import 'pages/City.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/',
+    initialRoute: '/home',
     routes: {
       '/': (context) => const LoadingPage(),
       '/home': (context) => const Home(),

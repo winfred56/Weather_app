@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import  '../widgets.dart';
+import '../service/weather_api.dart';
+import '../service/weather_api_client.dart';
 
 
 class Home extends StatefulWidget {
@@ -10,17 +12,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Map data = {};
-
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
+    WeatherApiClient().getWeather('London');
+
   }
-
-
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context)?.settings.arguments as Map;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
