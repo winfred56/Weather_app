@@ -3,6 +3,7 @@ import 'package:http/http.dart';
 
 class Weather{
   String? city;
+  String? country;
   double? temp;
   double? wind;
   double? feelsLike;
@@ -13,11 +14,13 @@ class Weather{
 
   Weather.fromJSON(Map<String, dynamic>json){
     city = json['name'];
-    temp = json['main']['temp'];
+    temp = (json['main']['temp'] - 273.15);
     wind = json['main']['wind'];
     feelsLike = json['main']['feels_like'];
     humidity = json['main']['humidity'];
     pressure = json['main']['pressure'];
+    country = json['sys']['country'];
+    temp = temp!.roundToDouble();
   }
 
   // Future<Weather>? getWeather() async {

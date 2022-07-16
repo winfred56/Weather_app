@@ -16,9 +16,14 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    WeatherApiClient().getWeather('London');
+
 
   }
+Weather? data;
+  Future<void> getData() async{
+    data = await WeatherApiClient().getWeather('London');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,27 +46,42 @@ class _HomeState extends State<Home> {
               size: 30,)
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          currentWeather(
-              Icons.wb_sunny_rounded,
-              "32.2 degrees",
-              "Kumasi"
-          ),
-          const Text(
-            "Additional Information",
-            style: TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey
-            ),
-          ),
-          const Divider(),
-          const SizedBox(height: 20.0),
-          additionalInformation("24.4", "13.56", "23.7", "19.45"),
-        ],
-      ),
+      body: FutureBuilder(
+        future: getData(),
+        builder: (context, snapshot){
+          if(snapshot.connectionState == ConnectionState.done){
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                currentWeather(
+                    Icons.wb_sunny_rounded,
+                    "${data!.temp} \u2103 ",
+                    "${data!.city}",
+                  "${data!.country}"
+                ),
+                Image.network(
+                  "https://countryflagsapi.com/png/${data!.country}",
+                  width: 60,
+                  height: 50,
+                ),
+                const SizedBox(height: 10.0),
+                const Text(
+                  "Additional Information",
+                  style: TextStyle(
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey
+                  ),
+                ),
+                const Divider(),
+                const SizedBox(height: 20.0),
+                additionalInformation("${data!.wind}", "${data!.humidity}", "${data!.pressure}", "${data!.feelsLike}"),
+              ],
+            );
+          }
+          return Container();
+        },
+      )
     );
   }
 }
