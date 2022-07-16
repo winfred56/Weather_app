@@ -113,7 +113,10 @@ Widget additionalInformation(String wind, String humidity, String pressure, Stri
             ),
           ],
         ),
+        const Divider(),
+
       ],
     ),
+
   );
 }

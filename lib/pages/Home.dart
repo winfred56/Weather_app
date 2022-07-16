@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
   }
 Weather? data;
   Future<void> getData() async{
-    data = await WeatherApiClient().getWeather('London');
+    data = await WeatherApiClient().getWeather('Alhaurín de la Torre');
   }
 
   @override
@@ -32,7 +32,7 @@ Weather? data;
         title: const Text(
           "Weather App",
           style: TextStyle(
-              fontSize: 28,
+              fontSize: 26,
               color: Colors.black
           ),
         ),
@@ -76,8 +76,22 @@ Weather? data;
                 const Divider(),
                 const SizedBox(height: 20.0),
                 additionalInformation("${data!.wind}", "${data!.humidity}", "${data!.pressure}", "${data!.feelsLike}"),
+                TextButton.icon(onPressed: (){
+                  Navigator.pushNamed(context, '/location');
+                },
+                    icon: const Icon(
+                      Icons.edit_location,
+                      size: 25,
+                    ),
+                    label: const Text(
+                      "Change Location",
+                      style: TextStyle(
+                        fontSize: 25,
+                      ),
+                    ))
               ],
             );
+
           }
           else{
             return const Scaffold(
@@ -90,9 +104,8 @@ Weather? data;
                 )
             );
           }
-          return Container();
         },
-      )
+      ),
     );
   }
 }
