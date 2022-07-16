@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import  '../widgets.dart';
 import '../service/weather_api.dart';
 import '../service/weather_api_client.dart';
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -77,6 +77,17 @@ Weather? data;
                 const SizedBox(height: 20.0),
                 additionalInformation("${data!.wind}", "${data!.humidity}", "${data!.pressure}", "${data!.feelsLike}"),
               ],
+            );
+          }
+          else{
+            return const Scaffold(
+                backgroundColor: Colors.white,
+                body: Center(
+                  child: SpinKitCubeGrid(
+                    color: Colors.orange,
+                    size: 50.0,
+                  ),
+                )
             );
           }
           return Container();
