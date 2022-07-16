@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({Key? key}) : super(key: key);
@@ -10,6 +11,15 @@ class LoadingPage extends StatefulWidget {
 class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+        backgroundColor: Colors.grey,
+        body: Center(
+          child: SpinKitCubeGrid(
+            color: Colors.orange,
+            size: 50.0,
+          ),
+        )
+    );
+
   }
 }
