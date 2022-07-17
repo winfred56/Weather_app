@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
 Weather? data;
 
   Future<void> getData() async{
-    data = await WeatherApiClient().getWeather(widget.newLocation);
+    data = (await WeatherApiClient().getWeather(widget.newLocation)) as Weather?;
 
   }
 
