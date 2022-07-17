@@ -86,12 +86,12 @@ Widget additionalInformation(String humidity, String pressure, String feelsLike 
               crossAxisAlignment: CrossAxisAlignment.start,
               children:[
                 Text(
-                  humidity,
+                  "$humidity%",
                   style: infoFont,
                 ),
                 const SizedBox(height: 30.0),
                 Text(
-                  pressure,
+                  '$pressure hPa',
                   style: infoFont,
                 ),
                 const SizedBox(height: 30.0),

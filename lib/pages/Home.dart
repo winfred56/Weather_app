@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import  '../widgets.dart';
-import '../service/weather_api.dart';
-import '../service/weather_api_client.dart';
+import  '../custom widets/widgets.dart';
+import '../features/weather_api.dart';
+import '../features/weather_api_client.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
@@ -79,7 +79,7 @@ Weather? data;
                 ),
                 const Divider(),
                 const SizedBox(height: 20.0),
-                additionalInformation("${data!.humidity}", "${data!.pressure}", "${data!.feelsLike}"),
+                additionalInformation("${data!.humidity}", "${data!.pressure}", "${data!.feelsLike}\u2103"),
                 TextButton.icon(onPressed: (){
                   Navigator.pushNamed(context, '/location');
                 },

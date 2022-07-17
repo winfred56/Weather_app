@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'Home.dart';
 
 class City extends StatefulWidget {
@@ -30,14 +29,14 @@ class _CityState extends State<City> {
         // backgroundColor: Colors.white70,
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(child: Center(
               child: Text(
-                "$newCity",
+                newCity,
                 style: const TextStyle(
                   fontSize: 28
                 ),

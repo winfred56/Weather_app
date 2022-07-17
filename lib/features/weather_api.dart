@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'package:http/http.dart';
 
 class Weather{
   String? city;
@@ -16,11 +14,12 @@ class Weather{
     city = json['name'];
     temp = (json['main']['temp'] - 273.15);
     wind = json['main']['wind'];
-    feelsLike = json['main']['feels_like'];
+    feelsLike = json['main']['feels_like']- 273.15;
     humidity = json['main']['humidity'];
     pressure = json['main']['pressure'];
     country = json['sys']['country'];
     temp = temp!.roundToDouble();
+    feelsLike = feelsLike!.roundToDouble();
   }
 
   // Future<Weather>? getWeather() async {
