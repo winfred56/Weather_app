@@ -59,12 +59,12 @@ Weather? data;
               children: [
                 currentWeather(
                     Icons.wb_sunny_rounded,
-                    "${data!.temp} \u2103 ",
-                    "${data!.city}",
-                  "${data!.country}"
+                    "${data?.temp} \u2103 ",
+                    "${data?.city}",
+                  "${data?.country}"
                 ),
                 Image.network(
-                  "https://countryflagsapi.com/png/${data!.country}",
+                  "https://countryflagsapi.com/png/${data?.country}",
                   width: 60,
                   height: 50,
                 ),
@@ -79,7 +79,7 @@ Weather? data;
                 ),
                 const Divider(),
                 const SizedBox(height: 20.0),
-                additionalInformation("${data!.humidity}", "${data!.pressure}", "${data!.feelsLike}\u2103"),
+                additionalInformation("${data?.humidity}", "${data?.pressure}", "${data?.feelsLike}\u2103"),
                 TextButton.icon(onPressed: (){
                   Navigator.pushNamed(context, '/location');
                 },
