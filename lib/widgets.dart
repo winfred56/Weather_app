@@ -43,7 +43,7 @@ Widget currentWeather(IconData icon, String temperature, String city, String cou
 
 
 
-Widget additionalInformation(String wind, String humidity, String pressure, String feelsLike ){
+Widget additionalInformation(String humidity, String pressure, String feelsLike ){
   const textFont  = TextStyle(fontWeight: FontWeight.w600, fontSize: 18,);
   const infoFont  = TextStyle(fontWeight: FontWeight.w400, fontSize: 18,);
 
@@ -62,11 +62,6 @@ Widget additionalInformation(String wind, String humidity, String pressure, Stri
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children:const [
-                Text(
-                  "Wind",
-                  style: textFont,
-                ),
-                SizedBox(height: 30.0),
                 Text(
                   "Humidity",
                   style: textFont,
@@ -88,11 +83,6 @@ Widget additionalInformation(String wind, String humidity, String pressure, Stri
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children:[
-                Text(
-                  wind,
-                  style: infoFont,
-                ),
-                const SizedBox(height: 30.0),
                 Text(
                   humidity,
                   style: infoFont,
