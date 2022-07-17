@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
 Weather? data;
 
   Future<void> getData() async{
-    data = await WeatherApiClient().getWeather('${widget.newLocation}');
+    data = await WeatherApiClient().getWeather(widget.newLocation);
 
   }
 
@@ -79,7 +79,7 @@ Weather? data;
                 ),
                 const Divider(),
                 const SizedBox(height: 20.0),
-                additionalInformation("${data!.wind}", "${data!.humidity}", "${data!.pressure}", "${data!.feelsLike}"),
+                additionalInformation("${data!.humidity}", "${data!.pressure}", "${data!.feelsLike}"),
                 TextButton.icon(onPressed: (){
                   Navigator.pushNamed(context, '/location');
                 },
