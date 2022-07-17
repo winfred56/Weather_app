@@ -11,7 +11,7 @@ class WeatherApiClient{
       data = jsonDecode(response.body);
       return Weather.fromJSON(data);
     } on Exception catch (e) {
-      return data = 'Failed to reac servers';
+      return data = 'Failed to reach servers';
     }
   }
 }
