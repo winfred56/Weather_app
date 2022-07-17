@@ -6,7 +6,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  String newLocation;
+   Home({Key? key, required this.newLocation}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -23,13 +24,12 @@ class _HomeState extends State<Home> {
 Weather? data;
 
   Future<void> getData() async{
-    data = await WeatherApiClient().getWeather('Santa Teresa');
+    data = await WeatherApiClient().getWeather('${widget.newLocation}');
 
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

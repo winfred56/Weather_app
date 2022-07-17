@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Home.dart';
+
 class City extends StatefulWidget {
   const City({Key? key}) : super(key: key);
 
@@ -54,9 +56,9 @@ class _CityState extends State<City> {
             MaterialButton(onPressed: (){
               setState((){
                 newCity = _textController.text;
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(builder: (context) => Home(newLocation:newCity))
-                // );
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Home(newLocation:newCity))
+                );
               });
             },
               color: Colors.blue,
