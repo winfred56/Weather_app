@@ -11,20 +11,22 @@ Widget currentWeather(IconData icon, String temperature, String city, String cou
         Icon(
             icon,
             color:Colors.orange,
-            size: 90
+            size: 95
         ),
         const SizedBox(height: 30),
         Text(
           temperature,
           style: const TextStyle(
-              fontSize: 32
+              fontSize: 52,
+            fontWeight: FontWeight.w500
           ),
         ),
         const SizedBox(height: 10.0,),
         Text(
           city,
           style: const TextStyle(
-              fontSize: 28
+              fontSize: 24,
+            fontWeight: FontWeight.w300
           ),
         ),
         const SizedBox(height: 20.0,),
