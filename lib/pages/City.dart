@@ -11,6 +11,7 @@ class _CityState extends State<City> {
   final _textController = TextEditingController();
   String newCity = '';
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,13 +19,13 @@ class _CityState extends State<City> {
         title: const Text(
             "Edit Location",
           style: TextStyle(
-            color: Colors.black,
+
             fontSize: 26,
           ),
         ),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white70,
       ),
       body: Padding(
         padding: EdgeInsets.all(20.0),
@@ -51,7 +52,12 @@ class _CityState extends State<City> {
               ),
             ),
             MaterialButton(onPressed: (){
-              setState((){newCity = _textController.text;});
+              setState((){
+                newCity = _textController.text;
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(builder: (context) => Home(newLocation:newCity))
+                // );
+              });
             },
               color: Colors.blue,
               child: const Text(
@@ -65,5 +71,8 @@ class _CityState extends State<City> {
         ),
       ),
     );
+
   }
 }
+
+

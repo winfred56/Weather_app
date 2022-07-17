@@ -4,6 +4,7 @@ import '../service/weather_api.dart';
 import '../service/weather_api_client.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -20,12 +21,15 @@ class _HomeState extends State<Home> {
 
   }
 Weather? data;
+
   Future<void> getData() async{
-    data = await WeatherApiClient().getWeather('Alhaurín de la Torre');
+    data = await WeatherApiClient().getWeather('Santa Teresa');
+
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -88,7 +92,8 @@ Weather? data;
                       style: TextStyle(
                         fontSize: 25,
                       ),
-                    ))
+                    )),
+
               ],
             );
 
